@@ -16,7 +16,7 @@ This guide will help you set up and run the CRUD project using cs.
 Clone the project repository using Git:
 
 ```sh
-git clone https://github.com/AlexPlec/GBGames.git
+git clone https://github.com/AlexPlec/ClientOrderApp.git
 ```
 
 Then, navigate into the project directory:
