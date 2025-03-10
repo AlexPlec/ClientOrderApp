@@ -7,7 +7,8 @@ This guide will help you set up and run the CRUD project using cs.
 
 ## Prerequisites
 
- -.NET SDK 9.0 or later
+ - .NET SDK 9.0 or later
+   
  Make sure you have .NET SDK installed on your system. You can download it from the official website: [.NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
 
 ## Cloning the Repository
