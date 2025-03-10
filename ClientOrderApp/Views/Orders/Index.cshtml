@@ -1,0 +1,35 @@
+﻿@model IEnumerable<dynamic>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Total Amount</th>
+            <th>Status</th>
+            <th>Client</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.ProductTitle</td>
+                <td>@item.Quantity</td>
+                <td>@item.TotalAmount</td>
+                <td>@item.Status</td>
+                <td>@item.ClientName</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<form asp-action="Create" asp-controller="Orders" method="get">
+    <button type="submit" class="btn btn-primary">Create Order</button>
+</form>

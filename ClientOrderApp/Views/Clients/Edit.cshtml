@@ -1,0 +1,36 @@
+﻿@model ClientOrderApp.Models.Client
+
+@{
+    ViewData["Title"] = "Edit Client";
+}
+
+<h2>Edit Client</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="Name">Name:</label>
+        <input asp-for="Name" class="form-control" required />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email">Email:</label>
+        <input asp-for="Email" class="form-control" type="email" required />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Birthdate">Birthdate:</label>
+        <input asp-for="Birthdate" class="form-control" type="date" required />
+        <span asp-validation-for="Birthdate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Gender">Gender:</label>
+        <div>
+            <label><input type="radio" asp-for="Gender" value="Male" required /> Male</label>
+            <label><input type="radio" asp-for="Gender" value="Female" required /> Female</label>
+        </div>
+        <span asp-validation-for="Gender" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

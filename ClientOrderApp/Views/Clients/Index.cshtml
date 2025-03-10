@@ -1,0 +1,53 @@
+﻿@model IEnumerable<dynamic>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Birthdate</th>
+            <th>Gender</th>
+            <th>Orders</th>
+            <th>Order Count</th>
+            <th>Average Order Amount</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+                <td>@item.Birthdate.ToShortDateString()</td>
+                <td>@item.Gender</td>
+                <td>
+                    @if (item.Orders != null && ((IEnumerable<dynamic>)item.Orders).Any())
+                    {
+                        foreach (var order in item.Orders)
+                        {
+                            <div>
+                                Product: @order.Title, Quantity: @order.Quantity, Total: @order.TotalAmount, Status: @order.Status
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <span>No orders</span>
+                    }
+                </td>
+                <td>@item.OrderCount</td>
+                <td>@item.AverageOrderAmount</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<form asp-action="Create" asp-controller="Clients" method="get">
+    <button type="submit" class="btn btn-primary">Create Client</button>
+</form>
