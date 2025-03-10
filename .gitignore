@@ -1,0 +1,6 @@
+bin/
+obj/
+wwwroot/
+ClientOrderApp.db
+ClientOrderApp.db-shm
+ClientOrderApp.db-wal
